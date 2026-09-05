@@ -5,24 +5,27 @@ def biblioteca():
         
         if comando == "ABOUT":
             print("Biblioteca de Jogos do Gabriel")
-        elif comando.startswith("ADD"):
+        elif comando == "ADD":
             try:
                 quantidade = int(input("Quantos jogos gostaria de cadastrar? "))
                 if quantidade <= 0:
                     print("ERRO: O número de jogos deve ser maior que zero.")
                 else:
                     for _ in range(quantidade):
-                        nome_jogo = input("Digite o nome do jogo: ")
-                        jogos.append(nome_jogo)
-                        print(f"SUCESSO: Jogo '{nome_jogo}' adicionado")
+                        nome_jogo = input("Digite o nome do jogo: ").strip()
+                        if nome_jogo:
+                            jogos.append(nome_jogo)
+                            print(f"SUCESSO: Jogo '{nome_jogo}' adicionado")
+                        else:
+                            print("ERRO: O nome não pode estar vazio!")
             except ValueError:
                 print("ERRO: Por favor, digite um número válido.")
         elif comando == "LIST":
-            if len(jogos) == 0:
+            if not jogos:
                 print("Não há nenhum jogo a ser listado no momento.")
             else:
-                for i in range(len(jogos)):
-                    print(f"{i + 1}. {jogos[i]}")
+                for i, jogo in enumerate(jogos, start=1):
+                    print(f"{i}. {jogo}")
         elif comando == "QUIT":
             print("Saindo da Biblioteca de Jogos")
             break
