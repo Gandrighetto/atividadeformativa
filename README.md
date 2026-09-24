@@ -30,7 +30,7 @@ O programa é uma biblioteca de jogos via linha de comando (`lista_jogos.py`). E
    - Comandos desconhecidos geram uma mensagem de erro avisando que o comando não foi reconhecido.
 5. **Encerramento**: Assim que o loop é interrompido, o programa finaliza exibindo a mensagem `"Hasta la vista!"`.
 
-## Estrutura do Código (Boas Práticas)
+## Estrutura do Código
 
 Nesta versão, a aplicação evoluiu de um script procedural simples para um código modular baseado em funções. Cada funcionalidade do menu (`adicionar_jogos`, `listar_jogos`, `atualizar_jogo`, `remover_jogo`) foi delegada à sua própria função.
 

@@ -27,10 +27,8 @@ Este documento serve como um registro do desenvolvimento do projeto **Biblioteca
 - Explicou o que significa o if __name__ == "__main__": que serve para que o código seja executado apenas quando o arquivo é executado diretamente, e não quando é importado como um módulo. Isso ajuda a organizar o código e a evitar erros.
 - Corrigiu erros de portugues, gramatica e ortografia.
 
-**Próximos passos:**
-- (A definir)
 
-## 20 de Setembro de 2026 (Atividade Formativa 2)
+## 20 de Setembro de 2026
 
 **O que foi feito:**
 - Refatoração da memória principal (`jogos`): a lista agora armazena dicionários em vez de strings.
@@ -46,24 +44,24 @@ Este documento serve como um registro do desenvolvimento do projeto **Biblioteca
 - Explicou o uso de tuplas para os registros do histórico, visto que são imutáveis e representam um log temporal perfeito.
 - Orientou no método `.remove(jogo)` para deletar um dicionário inteiro da lista.
 
-## Refatoração com Funções (Etapa Seguinte)
+## Refatoração com Funções
 
 **O que foi feito:**
 - Refatoração do código principal da aplicação para utilizar funções, melhorando a modularização e legibilidade.
-- Criação da função `encontrar_jogo(jogos, nome_jogo)` que centraliza a lógica de busca iterativa usando um loop `for` e que retorna o dicionário do jogo (se encontrado) ou `None`.
+- Criação da função `encontrar_jogo(jogos, nome_jogo)` que centraliza a lógica de busca iterativa usando um loop `for` e que retorna o dicionário do jogo ou `None`.
 - Desmembramento das lógicas dos comandos em funções independentes: `adicionar_jogos(jogos)`, `listar_jogos(jogos)`, `atualizar_jogo(jogos)`, `remover_jogo(jogos)` e `mostrar_about()`.
 - Modificação das funções de **UPDATE** e **DELETE** para aproveitarem a função `encontrar_jogo(jogos, nome)`, evitando repetição do loop de busca.
 - Limpeza do loop principal em `biblioteca()`, que agora gerencia apenas as condicionais e invoca a respectira função responsável pela tarefa, passando os argumentos necessários.
 
-## Melhorias de Boas Práticas (Code Smells)
+## Melhorias de Boas Práticas
 
 **O que foi feito:**
 - Adição de **Type Hints** nas assinaturas das funções (ex: `jogos: list[dict]`, `-> None`), explicitando os tipos de parâmetros e retornos.
 - Inclusão de **Docstrings** em todas as funções documentando seus propósitos e comportamentos.
-- Aplicação do padrão **Early Return** nas lógicas principais (`adicionar_jogos`, `atualizar_jogo`, `remover_jogo`), reduzindo o aninhamento (deep nesting) e validando erros precocemente.
-- Substituição da extensa cadeia de `if/elif` no menu principal pela estrutura **`match / case`** (Python 3.10+), deixando o código do loop infinito limpo, escalável e direto.
+- Aplicação do padrão **Early Return** nas lógicas principais (`adicionar_jogos`, `atualizar_jogo`, `remover_jogo`), reduzindo o aninhamento e validando erros precocemente.
+- Substituição da extensa cadeia de `if/elif` no menu principal pela estrutura **`match / case`**, deixando o código do loop infinito limpo, escalável e direto.
 
 **Como usei a IA para melhorar meu código:**
-- Interagi com a IA assumindo um papel ("roleplay") onde eu era um estagiário e a IA um analista sênior, pedindo um "Code Review".
-- A IA avaliou o script e apontou "code smells" (cheiros de mau código), explicando de forma muito didática o porquê certas lógicas — como aninhamentos profundos (*código Hadouken*) — são ruins.
-- Aprendi os conceitos de *Type Hints* para validação em IDEs e de *Early Return* para tratar caminhos de erro no começo da função sem precisar "enclausurar" o caminho de sucesso dentro de um `else`.
+- Interagi com a IA assumindo um papel onde eu era um estagiário e a IA um analista sênior, pedindo um "Code Review".
+- A IA avaliou o script e apontou "code smells", explicando de forma muito didática o porquê certas lógicas como aninhamentos profundos são ruins.
+- Aprendi os conceitos de *Type Hints* para validação em IDEs e de *Early Return* para tratar caminhos de erro no começo da função sem precisar enclausurar o caminho de sucesso dentro de um `else`.
